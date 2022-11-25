@@ -1,0 +1,18 @@
+version: '3'
+services:
+  photoprism:
+    image: photoprism/photoprism
+    ports:
+      - "2342:2342"
+    volumes:
+      - ./data/originals:/photoprism/originals
+      - storage:/photoprism/storage
+    environment:
+      - PHOTOPRISM_UPLOAD_NSFW=true
+      - PHOTOPRISM_ADMIN_PASSWORD=123456
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+
+volumes:
+  storage:

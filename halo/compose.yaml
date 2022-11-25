@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  halo:
+    image: halohub/halo
+    ports:
+      - "8090:8090"
+    volumes:
+      - data:/root/.halo
+
+volumes:
+  data:

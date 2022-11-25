@@ -1,0 +1,20 @@
+version: '3'
+services:
+  zfile:
+    image: zhaojun1998/zfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - data:/root/.zfile-v4/db
+      - logs:/root/.zfile-v4/logs
+      - ./data/file:/data/file
+    environment:
+      - PHOTOPRISM_UPLOAD_NSFW=true
+      - PHOTOPRISM_ADMIN_PASSWORD=123456
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+
+volumes:
+  data:
+  logs:

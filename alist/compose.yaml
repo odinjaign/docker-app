@@ -1,0 +1,11 @@
+version: '3'
+services:
+  alist:
+    image: xhofe/alist:latest
+    ports:
+      - "5244:5244"
+    volumes:
+      - data:/opt/alist/data
+
+volumes:
+  data:

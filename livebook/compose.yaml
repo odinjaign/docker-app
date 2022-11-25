@@ -1,0 +1,14 @@
+version: '3'
+services:
+  livebook:
+    image: livebook/livebook:latest
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - "data:/data"
+    environment:
+      - LIVEBOOK_PASSWORD=123qweASDzxc
+
+volumes:
+  data:
