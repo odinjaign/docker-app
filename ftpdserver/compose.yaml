@@ -7,6 +7,8 @@ services:
       - "30000-30009:30000-30009"
     volumes:
       - ./data/ftp_data:/home/ftpusers
+      # ftp_data:/home/ftpusers
+      
       - config:/etc/pure-ftpd/passwd
     environment:
       - FTP_USER_NAME=jaign
@@ -16,3 +18,4 @@ services:
 
 volumes:
   config:
+  # ftp_data:

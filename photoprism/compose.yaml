@@ -6,6 +6,8 @@ services:
       - "2342:2342"
     volumes:
       - ./data/originals:/photoprism/originals
+      # - data:/photoprism/originals
+
       - storage:/photoprism/storage
     environment:
       - PHOTOPRISM_UPLOAD_NSFW=true
@@ -16,3 +18,4 @@ services:
 
 volumes:
   storage:
+  # data:

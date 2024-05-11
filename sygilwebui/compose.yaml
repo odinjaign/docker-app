@@ -7,7 +7,10 @@ services:
     volumes:
       - models:/sd/models
       - model_cache:/sd/user_data/model_cache
+      
       - ./data/output:/sd/outputs
+      # - output:/sd/outputs
+
       # - ./entrypoint.sh:/entrypoint.sh
     environment:
       - VALIDATE_MODELS=false
@@ -24,6 +27,7 @@ services:
 volumes:
   model_cache:
   models:
+  # output:
 
     
     

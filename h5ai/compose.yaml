@@ -6,8 +6,11 @@ services:
     - 80:80
     volumes:
     - ./data/data:/h5ai
+    # - data:/h5ai
+    
     - config:/config
     image: awesometic/h5ai:latest
 
 volumes:
   config:
+  # data:

@@ -7,7 +7,9 @@ services:
     volumes:
       - data:/root/.zfile-v4/db
       - logs:/root/.zfile-v4/logs
+      
       - ./data/file:/data/file
+      # - file:/data/file
     environment:
       - PHOTOPRISM_UPLOAD_NSFW=true
       - PHOTOPRISM_ADMIN_PASSWORD=123456
@@ -18,3 +20,4 @@ services:
 volumes:
   data:
   logs:
+  # file:
