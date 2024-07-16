@@ -1,0 +1,30 @@
+
+services:
+  registry:
+    image: registry:2
+    ports:
+      - "443:443"
+    restart: always
+    volumes:
+      - images:/var/lib/registry
+      - ./data/certs:/certs
+    environment:
+      - REGISTRY_HTTP_ADDR=0.0.0.0:443
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.pem
+      - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
+  # cr.cost.free.hr
+  chartmuseum:
+    image: chartmuseum/chartmuseum:latest
+    volumes:
+    - charts:/charts
+    restart: always
+    environment:
+      PORT: 8080
+      STORAGE: local
+      STORAGE_LOCAL_ROOTDIR: /charts
+    ports:
+      - 8080:8080
+
+volumes:
+  images:
+  charts:
