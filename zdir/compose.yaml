@@ -1,0 +1,15 @@
+services:
+  zdir:
+    container_name: zdir
+    privileged: true
+    restart: always
+    ports:
+    - 6080:6080
+    volumes:
+      - data:/opt/zdir/data
+      # - '/data/public:/opt/zdir/data/public'
+      # - '/data/private:/opt/zdir/data/private'
+    image: helloz/zdir:4
+
+volumes:
+  data:
