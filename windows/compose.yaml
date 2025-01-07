@@ -1,20 +1,23 @@
-version: "3"
 services:
   windows:
-    image: registry.cn-hangzhou.aliyuncs.com/jaign-mirror/default:dockurr.windows
+    image: dockurr/windows
     container_name: windows
+    environment:
+      VERSION: "11"
+      LANGUAGE: "Chinese"
+      REGION: "zh-CN"
+      KEYBOARD: "zh-CN"
     devices:
       - /dev/kvm
     cap_add:
       - NET_ADMIN
     ports:
       - 8006:8006
-      - 13389:3389/tcp
-      - 13389:3389/udp
-    volumes:
-      - "storage:/storage"
+      - 3390:3389/tcp
+      - 3390:3389/udp
     stop_grace_period: 2m
-    restart: on-failure
-  
+    volumes:
+      - "data:/storage"
+
 volumes:
-  storage:
+  data:

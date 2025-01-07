@@ -1,0 +1,44 @@
+services:
+  opensearch-2:
+    profiles:
+      - opensearch-2
+    image: opensearchproject/opensearch:2
+    ports:
+      - "9200:9200"
+    environment:
+      - "discovery.type=single-node"
+      - "OPENSEARCH_INITIAL_ADMIN_PASSWORD=123_qweASD"
+  elasticsearch-7:
+    profiles:
+      - elasticsearch-7
+    image: elasticsearch:7.17.26
+    ports:
+      - "9200:9200"
+    environment:
+      - "discovery.type=single-node"
+      - "xpack.security.enabled=false"
+  elasticsearch-8:
+    profiles:
+      - elasticsearch-8
+    image: elasticsearch:8.16.2
+    ports:
+      - "9200:9200"
+    environment:
+      - "discovery.type=single-node"
+      - "xpack.security.enabled=false"
+  elasticsearch-6:
+    profiles:
+      - elasticsearch-6
+    image: elasticsearch:6.8.22
+    ports:
+      - "9200:9200"
+    environment:
+      - "discovery.type=single-node"
+  elasticsearch-5:
+    profiles:
+      - elasticsearch-5
+    image: elasticsearch:5.6
+    ports:
+      - "9200:9200"
+    environment:
+      - "discovery.type=single-node"
